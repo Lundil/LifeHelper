@@ -3,6 +3,7 @@ package com.example.myapplicationtest.activity.food;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -12,6 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplicationtest.R;
 import com.example.myapplicationtest.activity.MainActivity;
+import com.example.myapplicationtest.entity.ShoppingList;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FoodActivity extends AppCompatActivity {
 
@@ -43,5 +50,26 @@ public class FoodActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                ShoppingList post = dataSnapshot.getValue(ShoppingList.class);
+                // ..
+                System.out.println(post.things);
+                //post.things
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("shoppingList");
+        myRef.addValueEventListener(postListener);
+
     }
 }

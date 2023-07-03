@@ -30,35 +30,43 @@
 
         <activity
             android:name=".activity.notes.NotesActivity"
-            android:label="Notes" />
+            android:label="Notes"
+            android:theme="@style/noAnimTheme"/>
 
         <activity
             android:name=".activity.movies.WatchlistActivity"
-            android:label="Watchlist" />
+            android:label="Watchlist"
+            android:theme="@style/noAnimTheme"/>
 
         <activity
             android:name=".activity.raccoons.RaccoonActivity"
-            android:label="Raccoon" />
+            android:label="Raccoon"
+            android:theme="@style/noAnimTheme"/>
 
         <activity
             android:name=".activity.planner.PlannerActivity"
-            android:label="Planner" />
+            android:label="Planner"
+            android:theme="@style/noAnimTheme"/>
 
         <activity
             android:name=".activity.reminders.RemindersActivity"
-            android:label="Reminders" />
+            android:label="Reminders"
+            android:theme="@style/noAnimTheme"/>
 
         <activity
             android:name=".activity.food.FoodActivity"
-            android:label="Food" />
+            android:label="Food"
+            android:theme="@style/noAnimTheme"/>
 
         <activity
             android:name=".activity.notes.CreateNoteActivity"
-            android:label="CreateNote" />
+            android:label="CreateNote"
+            android:theme="@style/noAnimTheme"/>
 
         <activity
             android:name=".activity.notes.EditNoteActivity"
-            android:label="EditNote" />
+            android:label="EditNote"
+            android:theme="@style/noAnimTheme"/>
 
     </application>
 

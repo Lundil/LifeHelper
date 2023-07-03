@@ -8,7 +8,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +20,12 @@ import com.example.myapplicationtest.adapter.MovieAdapter;
 import com.example.myapplicationtest.entity.Movie;
 import com.example.myapplicationtest.factory.MovieFactory;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.List;
+import java.util.Map;
 
 public class WatchlistActivity extends AppCompatActivity{
 
@@ -57,41 +64,45 @@ public class WatchlistActivity extends AppCompatActivity{
         });
 
         Button searchButton = findViewById(R.id.searchButton);
-
+        EditText addEditView = findViewById(R.id.addEditView);
         // Ajoutez un écouteur de clic pour le bouton Accueil
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Démarrer l'activité principale (accueil)
-                /*Intent intent = new Intent(WatchlistActivity.this, SearchMovieActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-                finish();*/
-                new MovieFactory(getApplicationContext()).checkInfos( "Hidden Figures");
+                if(addEditView.getText() != null && addEditView.getText().toString() != ""){
+                    try {
+                        Toast.makeText(getApplicationContext(),"Attend ça charge un peu là", Toast.LENGTH_SHORT).show();
+                        new MovieFactory(getApplicationContext()).checkInfos(
+                                URLEncoder.encode(addEditView.getText().toString(), StandardCharsets.UTF_8.toString()),v);
+                        movieList = new MovieFactory(getApplicationContext()).getAllMovies();
+                        movieAdapter = new MovieAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, movieList);
+                        movieListView = findViewById(R.id.movieListView);
+                        movieListView.setAdapter(movieAdapter);
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"Nan mais saisie un truc aussi fais un effort", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         MovieFactory movies = new MovieFactory(getApplicationContext());
-        //notes.deleteAllNotes();
+        //movies.deleteAllMovies();
         movieList = movies.getAllMovies();
         movieAdapter = new MovieAdapter(this, android.R.layout.simple_list_item_1, movieList);
         movieListView = findViewById(R.id.movieListView);
         movieListView.setAdapter(movieAdapter);
 
-
-        /*
-        * https://dog.ceo/api/breeds/image/random
-        * */
-                /*
-        HttpRequest request = HttpRequest.newBuilder()
-		.uri(URI.create("))
-		.header("X-RapidAPI-Key", "e9ef8f8dcamsh879ac50ac13e3c3p1fd3c4jsnfed0bc63ae75")
-		.header("X-RapidAPI-Host", "streaming-availability.p.rapidapi.com")
-		.method("GET", HttpRequest.BodyPublishers.noBody())
-		.build();
-HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-System.out.println(response.body());
-        * */
-
+    }
+    public void deleteNoteButtonClicked(View v ){
+        Toast.makeText(getApplicationContext(),"Test", Toast.LENGTH_SHORT).show();
+        MovieFactory movies = new MovieFactory(getApplicationContext());
+        movieList = movies.getAllMovies();
+        movieAdapter = new MovieAdapter(this, android.R.layout.simple_list_item_1, movieList);
+        movieListView = findViewById(R.id.movieListView);
+        movieListView.setAdapter(movieAdapter);
     }
 }

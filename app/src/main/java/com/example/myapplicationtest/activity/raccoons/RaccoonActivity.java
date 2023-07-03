@@ -19,12 +19,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplicationtest.R;
 import com.example.myapplicationtest.activity.MainActivity;
+import com.example.myapplicationtest.utils.JSONReader;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class RaccoonActivity extends AppCompatActivity {
 
+    private static final String GET_URL = "https://localhost:9090/SpringMVCExample";
+
+    private static final String POST_URL = "https://localhost:9090/SpringMVCExample/home";
+
+    private static final String POST_PARAMS = "userName=Pankaj";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -63,10 +75,48 @@ public class RaccoonActivity extends AppCompatActivity {
         });
 
     }
-    private void anotherRaccoonButtonClicked(ImageView imageView){
-        imageView.setImageDrawable(null);
-        new DownloadImageTask(imageView)
-                .execute("https://i.natgeofe.com/k/6289c775-a06c-426a-badb-8d181a55237b/raccoon-grass_3x4.jpg");
+    private void anotherRaccoonButtonClicked(ImageView imageView) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try  {
+                    //Your code goes here
+                    URL obj = new URL("https://dog.ceo/api/breeds/image/random");
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                    con.setRequestMethod("GET");
+                    //con.setRequestProperty("User-Agent", USER_AGENT);
+                    int responseCode = con.getResponseCode();
+                    System.out.println("GET Response Code :: " + responseCode);
+                    if (responseCode == HttpURLConnection.HTTP_OK) { // success
+                        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                        String inputLine;
+                        StringBuffer response = new StringBuffer();
+
+                        while ((inputLine = in.readLine()) != null) {
+                            response.append(inputLine);
+                        }
+                        in.close();
+
+                        // print result
+                        System.out.println(response.toString());
+                        JSONReader jsonReader = new JSONReader();
+                        String message = jsonReader.getMessage(response.toString());
+                        if(message != null){
+                            new DownloadImageTask(imageView)
+                                    .execute(message);
+                        }
+                    } else {
+                        System.out.println("GET request did not work.");
+                    }
+                } catch(IOException ioe){
+                    System.out.println("GET request went wrong.");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
 
     }
 
@@ -91,6 +141,7 @@ public class RaccoonActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Bitmap result) {
+            bmImage.setImageDrawable(null);
             bmImage.setImageBitmap(result);
         }
     }
