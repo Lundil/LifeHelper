@@ -79,8 +79,7 @@ public class MovieAdapter extends ArrayAdapter {
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item_movie,parent,false);
 
-        movieList = new MovieFactory(mContext).getAllMovies();
-        Movie currentMovie = movieList.get(position);
+        Movie currentMovie = (Movie) getItem(position);
 
         TextView name = (TextView) listItem.findViewById(R.id.textViewMovie);
 

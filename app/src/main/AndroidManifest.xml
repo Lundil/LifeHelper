@@ -68,6 +68,31 @@
             android:label="EditNote"
             android:theme="@style/noAnimTheme"/>
 
+        <activity
+            android:name=".activity.gym.GymActivity"
+            android:label="Gym"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.chill.ChillActivity"
+            android:label="Chill"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.food.ShoppingListActivity"
+            android:label="Shopping"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.food.IngredientActivity"
+            android:label="Ingredient"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.food.UberEatActivity"
+            android:label="UberEat"
+            android:theme="@style/noAnimTheme"/>
+
     </application>
 
 </manifest>

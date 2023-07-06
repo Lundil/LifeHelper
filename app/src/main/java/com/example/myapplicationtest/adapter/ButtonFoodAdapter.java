@@ -9,28 +9,29 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
+import com.example.myapplicationtest.R;
+import com.example.myapplicationtest.activity.MainActivity;
 import com.example.myapplicationtest.activity.chill.ChillActivity;
 import com.example.myapplicationtest.activity.food.FoodActivity;
+import com.example.myapplicationtest.activity.food.IngredientActivity;
+import com.example.myapplicationtest.activity.food.MealActivity;
+import com.example.myapplicationtest.activity.food.ShoppingListActivity;
+import com.example.myapplicationtest.activity.food.UberEatActivity;
 import com.example.myapplicationtest.activity.gym.GymActivity;
-import com.example.myapplicationtest.activity.notes.NotesActivity;
 import com.example.myapplicationtest.activity.planner.PlannerActivity;
-import com.example.myapplicationtest.R;
-import com.example.myapplicationtest.activity.raccoons.RaccoonActivity;
-import com.example.myapplicationtest.activity.reminders.RemindersActivity;
-import com.example.myapplicationtest.activity.movies.WatchlistActivity;
 
-public class ButtonAdapter extends BaseAdapter {
+public class ButtonFoodAdapter extends BaseAdapter {
 
     private Context context;
 
     private String[] buttonNames = {
-            "FOOD", "GYM", "PLANNER", "CHILL"
+            "Shopping list", "Uber Eat", "Meals", "Ingredients", "Back"
     };
     /*private String[] buttonNames = {
             "Notes", "Watchlist", "Raccoon", "Food", "Planner", "Reminders"
     };*/
 
-    public ButtonAdapter(Context context) {
+    public ButtonFoodAdapter(Context context) {
         this.context = context;
     }
 
@@ -66,25 +67,31 @@ public class ButtonAdapter extends BaseAdapter {
                 // Gérer l'événement du clic ici
                 switch (position) {
                     case 0:
-                        intent = new Intent(context, FoodActivity.class);
+                        intent = new Intent(context, ShoppingListActivity.class);
                         context.startActivity(intent);
                         ((Activity) context).overridePendingTransition(0, 0);
                         ((Activity) context).finish();
                         break;
                     case 1:
-                        intent = new Intent(context, GymActivity.class);
+                        intent = new Intent(context, UberEatActivity.class);
                         context.startActivity(intent);
                         ((Activity) context).overridePendingTransition(0, 0);
                         ((Activity) context).finish();
                         break;
                     case 2:
-                        intent = new Intent(context, PlannerActivity.class);
+                        intent = new Intent(context, MealActivity.class);
                         context.startActivity(intent);
                         ((Activity) context).overridePendingTransition(0, 0);
                         ((Activity) context).finish();
                         break;
                     case 3:
-                        intent = new Intent(context, ChillActivity.class);
+                        intent = new Intent(context, IngredientActivity.class);
+                        context.startActivity(intent);
+                        ((Activity) context).overridePendingTransition(0, 0);
+                        ((Activity) context).finish();
+                        break;
+                    case 4:
+                        intent = new Intent(context, MainActivity.class);
                         context.startActivity(intent);
                         ((Activity) context).overridePendingTransition(0, 0);
                         ((Activity) context).finish();
