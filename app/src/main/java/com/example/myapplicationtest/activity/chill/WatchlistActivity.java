@@ -1,4 +1,4 @@
-package com.example.myapplicationtest.activity.movies;
+package com.example.myapplicationtest.activity.chill;
 
 import android.content.Intent;
 import android.os.Build;
@@ -23,9 +23,7 @@ import com.example.myapplicationtest.factory.MovieFactory;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.time.Duration;
 import java.util.List;
-import java.util.Map;
 
 public class WatchlistActivity extends AppCompatActivity{
 
@@ -56,7 +54,7 @@ public class WatchlistActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 // Démarrer l'activité principale (accueil)
-                Intent intent = new Intent(WatchlistActivity.this, MainActivity.class);
+                Intent intent = new Intent(WatchlistActivity.this, ChillActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();

@@ -44,7 +44,7 @@ public class UberEatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Démarrer l'activité principale (accueil)
-                Intent intent = new Intent(UberEatActivity.this, MainActivity.class);
+                Intent intent = new Intent(UberEatActivity.this, FoodActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();

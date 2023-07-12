@@ -1,13 +1,12 @@
 package com.example.myapplicationtest.factory;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.myapplicationtest.activity.movies.WatchlistActivity;
+import com.example.myapplicationtest.activity.chill.WatchlistActivity;
 import com.example.myapplicationtest.entity.Movie;
 import com.example.myapplicationtest.utils.JSONReader;
 

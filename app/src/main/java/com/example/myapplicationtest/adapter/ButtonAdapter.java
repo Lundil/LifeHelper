@@ -12,12 +12,8 @@ import android.widget.Button;
 import com.example.myapplicationtest.activity.chill.ChillActivity;
 import com.example.myapplicationtest.activity.food.FoodActivity;
 import com.example.myapplicationtest.activity.gym.GymActivity;
-import com.example.myapplicationtest.activity.notes.NotesActivity;
 import com.example.myapplicationtest.activity.planner.PlannerActivity;
 import com.example.myapplicationtest.R;
-import com.example.myapplicationtest.activity.raccoons.RaccoonActivity;
-import com.example.myapplicationtest.activity.reminders.RemindersActivity;
-import com.example.myapplicationtest.activity.movies.WatchlistActivity;
 
 public class ButtonAdapter extends BaseAdapter {
 

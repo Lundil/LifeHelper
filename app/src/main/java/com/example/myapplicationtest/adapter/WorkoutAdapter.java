@@ -17,42 +17,44 @@ import androidx.annotation.Nullable;
 
 import com.example.myapplicationtest.R;
 import com.example.myapplicationtest.entity.food.Ingredient;
+import com.example.myapplicationtest.entity.food.WorkoutPart;
+import com.example.myapplicationtest.entity.gym.Workout;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IngredientAdapter extends ArrayAdapter {
+public class WorkoutAdapter extends ArrayAdapter {
 
     private Context mContext;
     private List<Ingredient> ingredientList = new ArrayList<>();
 
-    public IngredientAdapter(@NonNull Context context, int resource) {
+    public WorkoutAdapter(@NonNull Context context, int resource) {
         super(context, resource);
     }
 
-    public IngredientAdapter(@NonNull Context context, int resource, int textViewResourceId) {
+    public WorkoutAdapter(@NonNull Context context, int resource, int textViewResourceId) {
         super(context, resource, textViewResourceId);
         mContext = context;
     }
 
-    public IngredientAdapter(@NonNull Context context, int resource, @NonNull Object[] objects) {
+    public WorkoutAdapter(@NonNull Context context, int resource, @NonNull Object[] objects) {
         super(context, resource, objects);
         mContext = context;
     }
 
-    public IngredientAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull Object[] objects) {
+    public WorkoutAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull Object[] objects) {
         super(context, resource, textViewResourceId, objects);
         mContext = context;
     }
 
-    public IngredientAdapter(@NonNull Context context, int resource, @NonNull List objects) {
+    public WorkoutAdapter(@NonNull Context context, int resource, @NonNull List objects) {
         super(context, resource, objects);
         mContext = context;
     }
 
-    public IngredientAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List objects) {
+    public WorkoutAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List objects) {
         super(context, resource, textViewResourceId, objects);
         mContext = context;
     }
@@ -63,11 +65,11 @@ public class IngredientAdapter extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItem = convertView;
         if(listItem == null)
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item_ingredient,parent,false);
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item_workout_part,parent,false);
 
-        Ingredient currentIngredient = (Ingredient) getItem(position);
-        TextView textViewIngredient = (TextView) listItem.findViewById(R.id.textViewIngredient);
-        textViewIngredient.setText(currentIngredient.getName());
+        Workout currentWorkout = (Workout) getItem(position);
+        TextView textViewIngredient = (TextView) listItem.findViewById(R.id.textViewWorkout);
+        textViewIngredient.setText("TODO affichage workout");
 
         return listItem;
     }

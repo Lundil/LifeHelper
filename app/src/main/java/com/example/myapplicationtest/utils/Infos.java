@@ -1,7 +1,5 @@
 package com.example.myapplicationtest.utils;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -14,42 +12,29 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Infos {
-    private Context appContext;
-    private User user = null;
-    private static final Infos infos = new Infos();
 
-    private Long maxIdIngredient;
-    private Long maxIdMeal;
-    private Long maxIdShoppingList;
-    private Long maxIdUberEat;
-    private Long maxIdMovie;
-    private Long maxIdNote;
-    private Long maxIdUser;
+    private static Infos instance;
+    private static User user = new User();
+    private static Long maxIdIngredient = 1L;
+    private static Long maxIdMeal = 1L;
+    private static Long maxIdShoppingList = 1L;
+    private static Long maxIdUberEat = 1L;
+    private static Long maxIdMovie = 1L;
+    private static Long maxIdNote = 1L;
+    private static Long maxIdUser = 1L;
 
-    public void init(Context context) {
-        if(appContext == null) {
-            this.appContext = context;
+    private static Long maxIdExercice = 1L;
+    private static Long maxIdWorkout = 1L;
+    private static Long maxIdWorkoutPart = 1L;
+
+    public static void initInstance() {
+        if (instance == null) {
+            // Create the instance
+            instance = new Infos();
         }
     }
-    private Context getContext() {
-        return appContext;
-    }
-    public static Context get() {
-        return getInstance().getContext();
-    }
-    public static synchronized Infos getInstance() {
-        return infos;
-    }
+
     private Infos() { }
-
-    public void storeUser(User user) {
-        if(this.user == null) {
-            this.user = user;
-        }
-    }
-    public User getUser() {
-        return this.user;
-    }
 
     public void loadMaxId(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -187,73 +172,155 @@ public class Infos {
             }
         });
 
+        mDatabase.child("exerciceMaxId").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if(dataSnapshot.getValue(Long.class) != null){
+                    maxIdExercice = dataSnapshot.getValue(Long.class);
+                }else{
+                    maxIdExercice = 1L;
+                    mDatabase.child("exerciceMaxId").setValue(1L);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+
+        mDatabase.child("workoutMaxId").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if(dataSnapshot.getValue(Long.class) != null){
+                    maxIdWorkout = dataSnapshot.getValue(Long.class);
+                }else{
+                    maxIdWorkout = 1L;
+                    mDatabase.child("workoutMaxId").setValue(1L);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+        mDatabase.child("workoutPartMaxId").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if(dataSnapshot.getValue(Long.class) != null){
+                    maxIdWorkoutPart = dataSnapshot.getValue(Long.class);
+                }else{
+                    maxIdWorkoutPart = 1L;
+                    mDatabase.child("workoutPartMaxId").setValue(1L);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+
     }
 
-    public Context getAppContext() {
-        return appContext;
+    public static Infos getInstance() {
+        return instance;
     }
 
-    public void setAppContext(Context appContext) {
-        this.appContext = appContext;
+    public static User getUser() {
+        return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public static void setUser(User user) {
+        Infos.user = user;
     }
 
-    public Long getMaxIdIngredient() {
+    public static Long getMaxIdIngredient() {
         return maxIdIngredient;
     }
 
-    public void setMaxIdIngredient(Long maxIdIngredient) {
-        this.maxIdIngredient = maxIdIngredient;
+    public static void setMaxIdIngredient(Long maxIdIngredient) {
+        Infos.maxIdIngredient = maxIdIngredient;
     }
 
-    public Long getMaxIdMeal() {
+    public static Long getMaxIdMeal() {
         return maxIdMeal;
     }
 
-    public void setMaxIdMeal(Long maxIdMeal) {
-        this.maxIdMeal = maxIdMeal;
+    public static void setMaxIdMeal(Long maxIdMeal) {
+        Infos.maxIdMeal = maxIdMeal;
     }
 
-    public Long getMaxIdShoppingList() {
+    public static Long getMaxIdShoppingList() {
         return maxIdShoppingList;
     }
 
-    public void setMaxIdShoppingList(Long maxIdShoppingList) {
-        this.maxIdShoppingList = maxIdShoppingList;
+    public static void setMaxIdShoppingList(Long maxIdShoppingList) {
+        Infos.maxIdShoppingList = maxIdShoppingList;
     }
 
-    public Long getMaxIdUberEat() {
+    public static Long getMaxIdUberEat() {
         return maxIdUberEat;
     }
 
-    public void setMaxIdUberEat(Long maxIdUberEat) {
-        this.maxIdUberEat = maxIdUberEat;
+    public static void setMaxIdUberEat(Long maxIdUberEat) {
+        Infos.maxIdUberEat = maxIdUberEat;
     }
 
-    public Long getMaxIdMovie() {
+    public static Long getMaxIdMovie() {
         return maxIdMovie;
     }
 
-    public void setMaxIdMovie(Long maxIdMovie) {
-        this.maxIdMovie = maxIdMovie;
+    public static void setMaxIdMovie(Long maxIdMovie) {
+        Infos.maxIdMovie = maxIdMovie;
     }
 
-    public Long getMaxIdNote() {
+    public static Long getMaxIdNote() {
         return maxIdNote;
     }
 
-    public void setMaxIdNote(Long maxIdNote) {
-        this.maxIdNote = maxIdNote;
+    public static void setMaxIdNote(Long maxIdNote) {
+        Infos.maxIdNote = maxIdNote;
     }
 
-    public Long getMaxIdUser() {
+    public static Long getMaxIdUser() {
         return maxIdUser;
     }
 
-    public void setMaxIdUser(Long maxIdUser) {
-        this.maxIdUser = maxIdUser;
+    public static void setMaxIdUser(Long maxIdUser) {
+        Infos.maxIdUser = maxIdUser;
+    }
+
+    public static Long getMaxIdExercice() {
+        return maxIdExercice;
+    }
+
+    public static void setMaxIdExercice(Long maxIdExercice) {
+        Infos.maxIdExercice = maxIdExercice;
+    }
+
+    public static Long getMaxIdWorkout() {
+        return maxIdWorkout;
+    }
+    public static void setMaxIdWorkout(Long maxIdWorkout) {
+        Infos.maxIdWorkout = maxIdWorkout;
+    }
+
+    public static Long getMaxIdWorkoutPart() {
+        return maxIdWorkoutPart;
+    }
+
+    public static void setMaxIdWorkoutPart(Long maxIdWorkoutPart) {
+        Infos.maxIdWorkoutPart = maxIdWorkoutPart;
     }
 }

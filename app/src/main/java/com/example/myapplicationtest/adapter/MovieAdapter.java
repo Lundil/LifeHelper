@@ -1,6 +1,5 @@
 package com.example.myapplicationtest.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -15,25 +14,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.myapplicationtest.R;
-import com.example.myapplicationtest.activity.movies.WatchlistActivity;
-import com.example.myapplicationtest.activity.notes.NotesActivity;
-import com.example.myapplicationtest.activity.raccoons.RaccoonActivity;
+import com.example.myapplicationtest.activity.chill.WatchlistActivity;
 import com.example.myapplicationtest.entity.Movie;
 import com.example.myapplicationtest.factory.MovieFactory;
-import com.example.myapplicationtest.utils.JSONReader;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 

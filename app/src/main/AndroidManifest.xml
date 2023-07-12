@@ -34,8 +34,13 @@
             android:theme="@style/noAnimTheme"/>
 
         <activity
-            android:name=".activity.movies.WatchlistActivity"
+            android:name=".activity.chill.WatchlistActivity"
             android:label="Watchlist"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.chill.TripActivity"
+            android:label="Trip"
             android:theme="@style/noAnimTheme"/>
 
         <activity
@@ -74,6 +79,21 @@
             android:theme="@style/noAnimTheme"/>
 
         <activity
+            android:name=".activity.gym.ExerciceActivity"
+            android:label="Exercice"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.gym.PlanningActivity"
+            android:label="Planning"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.gym.WorkoutActivity"
+            android:label="Workout"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
             android:name=".activity.chill.ChillActivity"
             android:label="Chill"
             android:theme="@style/noAnimTheme"/>
@@ -86,6 +106,11 @@
         <activity
             android:name=".activity.food.IngredientActivity"
             android:label="Ingredient"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.food.MealActivity"
+            android:label="Meal"
             android:theme="@style/noAnimTheme"/>
 
         <activity

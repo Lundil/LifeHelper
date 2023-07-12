@@ -3,53 +3,61 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="160dp"
+    android:paddingTop="16dp"
     android:textSize="30dp"
     android:background="@color/cardview_light_background">
-
-    <TextView
-        android:id="@+id/titreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="16dp"
-        android:textSize="16dp"
-        android:text="New Ingredient"/>
     <TableLayout
         android:id="@+id/mainTable"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/titreTextView"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5dip"
         android:layout_marginRight="5dip"
         android:paddingLeft="3dip"
         android:paddingRight="3dip"
-        android:shrinkColumns="1"
-        android:stretchColumns="*" >
+        android:stretchColumns="1,2" >
+        <TableRow>
+            <TextView
+                android:id="@+id/titreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="0dp"
+                android:layout_span="3"
+                android:paddingBottom="16dp"
+                android:textSize="30dp"
+                android:text="New Workout"/>
+        </TableRow>
         <TableRow>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:layout_span="1"
                 android:text="Name : " >
             </TextView>
             <EditText
                 android:id="@+id/nameEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:textSize="24dp"
                 android:layout_below="@+id/titreTextView"
-                android:hint="Name"
-                android:textSize="16dp" />
+                android:hint="Name" />
         </TableRow>
         <TableRow>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:textSize="24dp"
                 android:text="Type : " >
             </TextView>
             <Spinner
                 android:id="@+id/typeSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_span="2"
+                android:textSize="24dp"
                 android:layout_centerInParent="true"
                 android:layout_below="@+id/nameEditText"
                 android:drawSelectorOnTop="true"
@@ -57,48 +65,35 @@
         </TableRow>
         <TableRow>
             <TextView
+                android:id="@+id/addExercicesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Proteins : " >
-            </TextView>
-            <EditText
-                android:id="@+id/proteinEditText"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/mainTable"
+                android:paddingTop="0dp"
+                android:layout_span="2"
+                android:paddingBottom="16dp"
+                android:textSize="30dp"
+                android:text="Add Exercices"/>
+            <Button
+                android:id="@+id/addExerciceButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/mainTable"
                 android:layout_centerInParent="true"
-                android:layout_below="@+id/typeSpinner"
                 android:textSize="16dp"
-                android:hint="Proteins"/>
+                android:layout_span="1"
+                android:text="Add"/>
         </TableRow>
         <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Carbs : " >
-            </TextView>
-            <EditText
-                android:id="@+id/carbEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_below="@+id/proteinEditText"
-                android:textSize="16dp"
-                android:hint="Carbs"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fat : " >
-            </TextView>
-            <EditText
-                android:id="@+id/fatEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_below="@+id/carbEditText"
-                android:textSize="16dp"
-                android:hint="Fat"/>
+            <ListView
+                android:id="@+id/workoutPartListView"
+                android:layout_below="@+id/poidsEditText"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_width="match_parent"
+                android:layout_span="3"
+                android:layout_height="300dp" />
         </TableRow>
         <TableRow>
             <Button
@@ -108,13 +103,18 @@
                 android:layout_below="@+id/fatEditText"
                 android:layout_centerInParent="true"
                 android:textSize="16dp"
+                android:layout_span="1"
                 android:text="Return"/>
+            <Button
+                android:layout_span="1"
+                android:visibility="invisible"/>
             <Button
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fatEditText"
                 android:layout_centerInParent="true"
+                android:layout_span="1"
                 android:textSize="16dp"
                 android:text="Save"/>
         </TableRow>

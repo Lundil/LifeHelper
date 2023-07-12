@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:paddingTop="16dp"
         android:textSize="16dp"
-        android:text="New Ingredient"/>
+        android:text="New Exercice"/>
     <TableLayout
         android:id="@+id/mainTable"
         android:layout_width="fill_parent"
@@ -59,53 +59,37 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Proteins : " >
+                android:text="Image : " >
             </TextView>
             <EditText
-                android:id="@+id/proteinEditText"
+                android:id="@+id/imageEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_below="@+id/typeSpinner"
                 android:textSize="16dp"
-                android:hint="Proteins"/>
+                android:hint="Url vers un png"/>
         </TableRow>
         <TableRow>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Carbs : " >
+                android:text="Tips : " >
             </TextView>
             <EditText
-                android:id="@+id/carbEditText"
+                android:id="@+id/tipsEditText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_below="@+id/proteinEditText"
+                android:layout_height="150dp"
+                android:layout_below="@+id/imageEditText"
                 android:textSize="16dp"
-                android:hint="Carbs"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fat : " >
-            </TextView>
-            <EditText
-                android:id="@+id/fatEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_below="@+id/carbEditText"
-                android:textSize="16dp"
-                android:hint="Fat"/>
+                android:hint="Exécution tips..."/>
         </TableRow>
         <TableRow>
             <Button
                 android:id="@+id/dismissButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fatEditText"
+                android:layout_below="@+id/tipsEditText"
                 android:layout_centerInParent="true"
                 android:textSize="16dp"
                 android:text="Return"/>
@@ -113,7 +97,7 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fatEditText"
+                android:layout_below="@+id/tipsEditText"
                 android:layout_centerInParent="true"
                 android:textSize="16dp"
                 android:text="Save"/>

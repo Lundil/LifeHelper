@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@android:color/transparent"
-        android:src="@drawable/raccoon_food"
+        android:src="@drawable/raccoon_chill"
         android:scaleType="fitCenter"
         android:layout_marginBottom="16dp"
         android:layout_alignParentTop="true"

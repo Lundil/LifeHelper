@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_main);
 
-        infos = infos.getInstance();
-        infos.init(getApplicationContext());
+        Infos.initInstance();
+        Infos infos = Infos.getInstance();
         infos.loadMaxId();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 User user = dataSnapshot.getValue(User.class);
-                infos.storeUser(user);
+                Infos.setUser(user);
                 Log.d("TAG", "Value is: " + user.username);
             }
 

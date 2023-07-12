@@ -8,12 +8,16 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplicationtest.R;
 import com.example.myapplicationtest.activity.MainActivity;
+import com.example.myapplicationtest.adapter.ButtonFoodAdapter;
+import com.example.myapplicationtest.adapter.ButtonGymAdapter;
 import com.example.myapplicationtest.entity.ShoppingList;
+import com.example.myapplicationtest.utils.Infos;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class GymActivity extends AppCompatActivity {
-
+    private GridView gridView;
+    private ButtonGymAdapter buttonAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -34,44 +39,13 @@ public class GymActivity extends AppCompatActivity {
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
-        setContentView(R.layout.activity_planner);
+        setContentView(R.layout.activity_gym);
 
-        // Obtenez une référence au bouton Accueil
-        Button homeButton = findViewById(R.id.buttonHome);
+        gridView = findViewById(R.id.gridView);
+        buttonAdapter = new ButtonGymAdapter(this);
+        gridView.setAdapter(buttonAdapter);
 
-        // Ajoutez un écouteur de clic pour le bouton Accueil
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Démarrer l'activité principale (accueil)
-                Intent intent = new Intent(GymActivity.this, MainActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-                finish();
-            }
-        });
 
-        ValueEventListener postListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-                ShoppingList post = dataSnapshot.getValue(ShoppingList.class);
-                // ..
-                if(post != null && post.things != null){
-                    System.out.println(post.things);
-                }
-                //post.things
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
-                Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
-            }
-        };
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("shoppingList");
-        myRef.addValueEventListener(postListener);
 
     }
 }

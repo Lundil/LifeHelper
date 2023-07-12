@@ -30,7 +30,7 @@ public class FoodFactory {
     public void writeNewIngredient(String name, String type, Long proteins, Long carbs, Long fat) {
         infos = infos.getInstance();
         Ingredient ingredient = new Ingredient();
-        ingredient.setId(1L);
+        ingredient.setId(infos.getMaxIdIngredient());
         ingredient.setName(name);
         ingredient.setProteins(proteins);
         ingredient.setCarbs(carbs);
@@ -42,9 +42,10 @@ public class FoodFactory {
         mDatabase.child("ingredientMaxId").setValue(ingredient.getId()+1L);
     }
 
-    public void updateIngredient(String name, String type, Long proteins, Long carbs, Long fat){
+    public void updateIngredient(String id, String name, String type, Long proteins, Long carbs, Long fat){
         infos = infos.getInstance();
         Ingredient ingredient = new Ingredient();
+        ingredient.setId(Long.parseLong(id));
         ingredient.setName(name);
         ingredient.setProteins(proteins);
         ingredient.setCarbs(carbs);
@@ -53,29 +54,6 @@ public class FoodFactory {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("ingredients").child(ingredient.getId()+"").setValue(ingredient);
-    }
-
-    public Ingredient getIngredientById(Long ingredientId){
-        Ingredient ingredient = new Ingredient();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("ingredients").child(ingredientId+"").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                    ingredient.setId(1L);
-                    ingredient.setName("TODO CHANGE");
-                    ingredient.setProteins(1L);
-                    ingredient.setCarbs(2L);
-                    ingredient.setFat(3L);
-                    ingredient.setType("TODO CHANGE");
-                }
-            }
-        });
-        return ingredient;
     }
 
 }
