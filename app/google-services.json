@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "727795859877",
+    "firebase_url": "https://fir-lifehelper-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fir-lifehelper",
+    "storage_bucket": "fir-lifehelper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727795859877:android:43b3e6f1b466cfafe0a84c",
+        "android_client_info": {
+          "package_name": "com.example.lifehelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727795859877-vhq480i7src5re40eenamjco5jb9gkfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYPHJzCfTCrvep_geV4UFDG8vdwBzwNHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727795859877-vhq480i7src5re40eenamjco5jb9gkfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727795859877:android:771018ba8939102fe0a84c",
+        "android_client_info": {
+          "package_name": "com.example.myapplicationtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727795859877-vhq480i7src5re40eenamjco5jb9gkfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYPHJzCfTCrvep_geV4UFDG8vdwBzwNHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727795859877-vhq480i7src5re40eenamjco5jb9gkfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
