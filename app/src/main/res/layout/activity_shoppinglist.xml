@@ -18,7 +18,7 @@
             android:drawableLeft="@android:drawable/ic_media_previous"
             android:text="" />
         <EditText
-            android:id="@+id/addEditView"
+            android:id="@+id/addArticle"
             android:layout_marginLeft="6dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="6dp"
@@ -26,10 +26,10 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
-            android:hint="Search an exercice..."
+            android:hint="J'ai besoin de..."
             />
 
-        <!--<Button
+        <Button
             android:id="@+id/addButton"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:layout_marginRight="16dp"
             android:background="@color/black"
             android:drawableLeft="@android:drawable/ic_input_add"
-            android:text=""/>-->
+            android:text=""/>
     </LinearLayout>
 
 
@@ -46,7 +46,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
         <ListView
-            android:id="@+id/exerciceListView"
+            android:id="@+id/ingredientListView"
             android:layout_below="@+id/buttonReturn"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"

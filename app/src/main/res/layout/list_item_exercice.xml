@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    >
-    <TextView
-        android:id="@+id/textViewExercice"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Test"
-        android:textSize="20sp"/>
-</LinearLayout>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:id="@+id/mainTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shrinkColumns="1"
+        android:stretchColumns="*" >
+        <TableRow>
+            <TextView
+                android:id="@+id/textViewExercice"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_span="1"
+                android:text="Test"
+                android:textSize="20sp" />
+            <ImageView
+                android:id="@+id/imageViewExercice"
+                android:src="@drawable/developpe_couche"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="100dp"
+                android:layout_span="1"/>
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

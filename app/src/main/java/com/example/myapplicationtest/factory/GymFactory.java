@@ -60,9 +60,13 @@ public class GymFactory {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("workouts").child(workout.getId()+"").setValue(workout);
         mDatabase.child("workoutMaxId").setValue(workout.getId()+1L);
+
+        for (WorkoutPart workoutPart : workout.getListWorkoutPart() ) {
+            writeNewWorkoutPart(workoutPart);
+        }
     }
 
-    public void writeNewWorkout(WorkoutPart workoutPart) {
+    public void writeNewWorkoutPart(WorkoutPart workoutPart) {
         infos = infos.getInstance();
         workoutPart.setId(infos.getMaxIdWorkoutPart());
 
@@ -75,6 +79,10 @@ public class GymFactory {
         infos = infos.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("workouts").child(workout.getId()+"").setValue(workout);
+
+        for (WorkoutPart workoutPart : workout.getListWorkoutPart() ) {
+            updateWorkoutPart(workoutPart);
+        }
     }
 
     public void updateWorkoutPart(WorkoutPart workoutPart){

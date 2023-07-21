@@ -69,7 +69,10 @@ public class WorkoutPartAdapter extends ArrayAdapter {
 
         WorkoutPart currentWorkoutPart = (WorkoutPart) getItem(position);
         TextView textViewIngredient = (TextView) listItem.findViewById(R.id.textViewWorkoutPart);
-        textViewIngredient.setText("TODO affichage workoutpart");
+        textViewIngredient.setText(currentWorkoutPart.getExo().getName() + " " +
+                currentWorkoutPart.getSerie() + "x" +
+                currentWorkoutPart.getRep()+ "x"+
+                currentWorkoutPart.getPoids()+"kg");
 
         return listItem;
     }

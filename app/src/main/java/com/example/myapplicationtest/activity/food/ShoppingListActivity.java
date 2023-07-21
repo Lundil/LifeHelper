@@ -3,11 +3,15 @@ package com.example.myapplicationtest.activity.food;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,10 +38,13 @@ public class ShoppingListActivity extends AppCompatActivity {
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
-        setContentView(R.layout.activity_planner);
+        setContentView(R.layout.activity_shoppinglist);
 
         // Obtenez une référence au bouton Accueil
-        Button homeButton = findViewById(R.id.buttonHome);
+        Button homeButton = findViewById(R.id.buttonReturn);
+        EditText addArticle = findViewById(R.id.addArticle);
+        //Change hint
+        addArticle.addTextChangedListener(redoWatcher);
 
         // Ajoutez un écouteur de clic pour le bouton Accueil
         homeButton.setOnClickListener(new View.OnClickListener() {
@@ -75,4 +82,18 @@ public class ShoppingListActivity extends AppCompatActivity {
         myRef.addValueEventListener(postListener);
 
     }
+    private TextWatcher redoWatcher = new TextWatcher() {
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                                      int after) {
+        }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before,
+                                  int count) {
+            //recalculate();
+        }
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 }

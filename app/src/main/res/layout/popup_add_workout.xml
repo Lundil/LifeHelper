@@ -97,10 +97,9 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/dismissButton"
+                android:id="@+id/buttonReturn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fatEditText"
                 android:layout_centerInParent="true"
                 android:textSize="16dp"
                 android:layout_span="1"
@@ -112,7 +111,6 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fatEditText"
                 android:layout_centerInParent="true"
                 android:layout_span="1"
                 android:textSize="16dp"

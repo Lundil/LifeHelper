@@ -2,8 +2,10 @@ package com.example.myapplicationtest.entity.gym;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
+
 @IgnoreExtraProperties
-public class Exercice {
+public class Exercice implements Serializable {
 
     private Long id;
     private String name;

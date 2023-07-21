@@ -94,6 +94,21 @@
             android:theme="@style/noAnimTheme"/>
 
         <activity
+            android:name=".activity.gym.WorkoutAddSaveActivity"
+            android:label="WorkoutAddSaveActivity"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.gym.WorkoutAddExerciceActivity"
+            android:label="WorkoutAddExerciceActivity"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
+            android:name=".activity.gym.AddExerciceActivity"
+            android:label="AddExerciceActivity"
+            android:theme="@style/noAnimTheme"/>
+
+        <activity
             android:name=".activity.chill.ChillActivity"
             android:label="Chill"
             android:theme="@style/noAnimTheme"/>

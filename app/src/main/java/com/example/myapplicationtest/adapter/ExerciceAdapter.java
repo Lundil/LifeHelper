@@ -3,6 +3,7 @@ package com.example.myapplicationtest.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,7 +27,6 @@ import java.util.List;
 public class ExerciceAdapter extends ArrayAdapter {
 
     private Context mContext;
-    private List<Exercice> exerciceList = new ArrayList<>();
 
     public ExerciceAdapter(@NonNull Context context, int resource) {
         super(context, resource);
@@ -68,6 +68,12 @@ public class ExerciceAdapter extends ArrayAdapter {
         Exercice currentExercice = (Exercice) getItem(position);
         TextView textViewExercice = (TextView) listItem.findViewById(R.id.textViewExercice);
         textViewExercice.setText(currentExercice.getName());
+
+        ImageView imageViewExercice = (ImageView) listItem.findViewById(R.id.imageViewExercice);
+        String uri = "@drawable/"+currentExercice.getImage();
+        int imageResource = getContext().getResources().getIdentifier(uri, null, getContext().getPackageName());
+        Drawable res = getContext().getResources().getDrawable(imageResource);
+        imageViewExercice.setImageDrawable(res);
 
         return listItem;
     }

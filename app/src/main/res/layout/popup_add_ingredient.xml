@@ -66,6 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:inputType="number"
                 android:layout_below="@+id/typeSpinner"
                 android:textSize="16dp"
                 android:hint="Proteins"/>
@@ -81,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:inputType="number"
                 android:layout_below="@+id/proteinEditText"
                 android:textSize="16dp"
                 android:hint="Carbs"/>
@@ -96,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:inputType="number"
                 android:layout_below="@+id/carbEditText"
                 android:textSize="16dp"
                 android:hint="Fat"/>

@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="160dp"
+    android:paddingTop="6dp"
     android:textSize="30dp"
     android:background="@color/cardview_light_background">
-
-    <TextView
-        android:id="@+id/titreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="16dp"
-        android:textSize="16dp"
-        android:text="New Exercice"/>
     <TableLayout
         android:id="@+id/mainTable"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/titreTextView"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="5dip"
         android:layout_marginRight="5dip"
         android:paddingLeft="3dip"
@@ -27,59 +19,43 @@
         android:shrinkColumns="1"
         android:stretchColumns="*" >
         <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name : " >
-            </TextView>
-            <EditText
-                android:id="@+id/nameEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/titreTextView"
-                android:hint="Name"
-                android:textSize="16dp" />
+            <ImageView
+                android:id="@+id/exerciceImageview"
+                android:layout_width="300dp"
+                android:layout_height="300dp" />
         </TableRow>
         <TableRow>
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type : " >
-            </TextView>
-            <Spinner
-                android:id="@+id/typeSpinner"
-                android:layout_width="wrap_content"
+                android:id="@+id/nameTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_below="@+id/nameEditText"
-                android:drawSelectorOnTop="true"
-                />
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="16dp"
+                android:text="Nom de l'exercice"
+                android:textSize="30dp"/>
         </TableRow>
         <TableRow>
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/typeTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Image : " >
-            </TextView>
-            <EditText
-                android:id="@+id/imageEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_below="@+id/typeSpinner"
-                android:textSize="16dp"
-                android:hint="Url vers un png"/>
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="16dp"
+                android:text="Type de l'exercice"
+                android:textSize="24dp" />
         </TableRow>
         <TableRow>
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tips : " >
-            </TextView>
-            <EditText
-                android:id="@+id/tipsEditText"
-                android:layout_width="wrap_content"
+                android:id="@+id/tipsTextView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="150dp"
+                android:paddingTop="16dp"
                 android:layout_below="@+id/imageEditText"
                 android:textSize="16dp"
                 android:hint="Exécution tips..."/>
@@ -92,15 +68,7 @@
                 android:layout_below="@+id/tipsEditText"
                 android:layout_centerInParent="true"
                 android:textSize="16dp"
-                android:text="Return"/>
-            <Button
-                android:id="@+id/saveButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tipsEditText"
-                android:layout_centerInParent="true"
-                android:textSize="16dp"
-                android:text="Save"/>
+                android:text="Fermer"/>
         </TableRow>
     </TableLayout>
 </RelativeLayout>

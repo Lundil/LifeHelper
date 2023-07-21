@@ -65,11 +65,11 @@ public class WorkoutAdapter extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItem = convertView;
         if(listItem == null)
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item_workout_part,parent,false);
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item_workout,parent,false);
 
         Workout currentWorkout = (Workout) getItem(position);
         TextView textViewIngredient = (TextView) listItem.findViewById(R.id.textViewWorkout);
-        textViewIngredient.setText("TODO affichage workout");
+        textViewIngredient.setText(currentWorkout.getName() + " " + currentWorkout.getType());
 
         return listItem;
     }

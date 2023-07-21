@@ -8,7 +8,7 @@
     android:background="@color/cardview_light_background">
 
     <TableLayout
-        android:id="@+id/main2Table"
+        android:id="@+id/mainTable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="16dp"
@@ -35,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="1"
+                android:inputType="number"
                 android:textSize="24dp"
                 android:layout_centerInParent="true"
                 android:layout_below="@+id/typeSpinner"
@@ -44,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="1"
+                android:inputType="number"
                 android:textSize="24dp"
                 android:layout_centerInParent="true"
                 android:layout_below="@+id/typeSpinner"
@@ -53,6 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_span="1"
+                android:inputType="number"
                 android:textSize="24dp"
                 android:layout_centerInParent="true"
                 android:layout_below="@+id/typeSpinner"
@@ -76,6 +79,7 @@
             <ListView
                 android:id="@+id/exerciceListView"
                 android:choiceMode="singleChoice"
+                style="@style/activated"
                 android:listSelector="@android:color/darker_gray"
                 android:layout_below="@+id/addEditView"
                 android:layout_marginTop="6dp"
@@ -87,7 +91,7 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/returnButtonButton"
+                android:id="@+id/buttonReturn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/exerciceListView"
